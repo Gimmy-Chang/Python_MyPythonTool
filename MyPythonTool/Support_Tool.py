@@ -13,7 +13,7 @@ def find_str(target_list, index, target):
     Example:
         example_list = [[1, 'apple'], [2, 'bird'], [3, 'bag'], [4, 'baseket'],[5, 'baseketball'], [6, 'balanced'], [7, 'basketball']]
         example_target = 'apple'
-        exmaple_index = 1 # 因為欲尋找字串apple，而apple的index為1
+        example_index = 1 # 因為欲尋找字串apple，而apple的index為1
         find_str(example_list, example_index, example_target)
         Output[1] :
     '''
