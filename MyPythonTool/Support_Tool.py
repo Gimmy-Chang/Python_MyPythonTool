@@ -45,8 +45,11 @@ def find_list_data(target_list, index, target):
     buffer_index = current_index
 
     # Main
-    for i in range(current_index):
+    for i in range(int(np.ceil(np.sqrt(current_index*2)))):
         buffer_index = int(np.ceil(buffer_index/2))
+        # if current_index > len(sort_list):
+        #     current_index = len(sort_list)
+        #     continue
         if sort_list[current_index][index] > target:
             current_index = current_index - buffer_index
         elif sort_list[current_index][index] == target:
@@ -58,8 +61,6 @@ def find_list_data(target_list, index, target):
     else:
         print("There's no '%s' inside you list!!!!" % str(target))
 
-
-
 def checklist(target_list, n = 0):
     '''
     For checking the structure of the list, this will return the amount of the nested list
@@ -69,7 +70,7 @@ def checklist(target_list, n = 0):
                    If your input is a list format, output will return an amount that n > 0.
                    If not return -1
     Example1:
-        checklist([[1]],[[2]])
+        checklist([[1],[2]])
         Output1: 2
     Example2:
         checklist((1,2,3))
@@ -77,9 +78,8 @@ def checklist(target_list, n = 0):
     '''
     if type(target_list) == list:
         n += 1
-        checklist(target_list[0], n = n)
+        return checklist(target_list[0], n = n)
     elif type(target_list) != list and n == 0:
         return -1
     else:
-        print(n)
         return n
